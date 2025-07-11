@@ -91,6 +91,7 @@
     <Compile Include="Assets/_CompletedAssets/Scripts/Helpers/RandomAnimationPoint.cs" />
     <Compile Include="Assets/_CompletedAssets/Scripts/Managers/PauseManager.cs" />
     <Compile Include="Assets/Enemymanager.cs" />
+    <Compile Include="Assets\Scripts\text.cs" />
     <None Include="Assets/_CompletedAssets/SampleAssets/Effects/ImageEffects/Shaders/frag_ao.cginc" />
     <None Include="Assets/_CompletedAssets/SampleAssets/Effects/ImageEffects/Shaders/VignettingShader.shader" />
     <None Include="Assets/_CompletedAssets/SampleAssets/Effects/ImageEffects/Shaders/ColorCorrectionCurves.shader" />
@@ -809,6 +810,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Textures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
