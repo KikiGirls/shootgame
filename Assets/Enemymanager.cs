@@ -15,6 +15,7 @@ public class Enemymanager : MonoBehaviour
     private bool isSinking = false;
     public bool isDead = false;
     public AudioClip deathSound;
+    private SphereCollider sphereCollider;
     public void hit(RaycastHit shootHit)
     {
         if (isDead) return;
@@ -46,6 +47,7 @@ public class Enemymanager : MonoBehaviour
         particleSystem = GetComponentInChildren<ParticleSystem>();
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+         sphereCollider = GetComponent<SphereCollider>();
     }
 
     // Start is called before the first frame update
@@ -59,6 +61,11 @@ public class Enemymanager : MonoBehaviour
     {
         if (isSinking)
         {transform.Translate(-transform.up * 2.5f * Time.deltaTime);}
+
+        if (playerInRange)
+        {
+            
+        }
     }
 
     public void StartSinking()
@@ -67,4 +74,23 @@ public class Enemymanager : MonoBehaviour
         
         Destroy(gameObject, 2f);
     }
+
+    private bool playerInRange = false;
+    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+           playerInRange = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            playerInRange = false;
+        }
+    }
 }
+
